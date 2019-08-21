@@ -13,8 +13,8 @@ class TestService extends Service {
   }
 
   async modelTest() {
-    this.logger.debug('================my-framework.service.test.modelTest===[this.ctx.model]>', this.ctx.model);
-    this.logger.debug('================my-framework.service.test.modelTest===[this.ctx.model.Admin]>', this.ctx.model.Admin);
+    console.log('================my-framework.service.test.modelTest===[this.ctx.model]>', this.ctx.model);
+    console.log('================my-framework.service.test.modelTest===[this.ctx.model.Admin]>', this.ctx.model.Admin);
     const result = await this.ctx.model.Admin.findOne({
       where: {
         username: 'Admin',
