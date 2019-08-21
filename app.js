@@ -28,12 +28,7 @@ class AppBootHook {
 
     // 例如：从数据库加载数据到内存缓存
     if (this.app.config.appStart.recreateDatabase) {
-      const result = await this.app.model.sync({ force: true });
-      if (result) {
-        await this.app.model.query('INSERT INTO admin VALUES(default,\'显示名称\',\'admin\',\'123456\',0,\'Admin\');', {
-          type: this.app.model.QueryTypes.INSERT,
-        });
-      }
+      await this.app.model.sync({ force: true });
       console.log('==[TINY-EGG][DEBUG] =======> AppBootHook > [willReady]: Sync Models Done.');
     }
   }
